@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
 
 body {
   margin: 0;
@@ -9,9 +8,55 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.blue-glassmorphism {
+border-radius: 50px;
+background: linear-gradient(90deg, #fad0c4, #ffcfc8, #ffcecd, #ffcdd3, #ffcdda, #ffcde3, #ffceec, #ffcff5, #ffd1ff);
+box-shadow: 20px 20px 60px #d9aeb9,
+-20px -20px 60px #ffecfb;
+background-size: 400%;
+animation: bg-animation 24s infinite alternate;
+}
+
+/* white glassmorphism */
+.white-glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.eth-card {
+  background-color: #a099ff;
+  background-image:
+    radial-gradient(at 83% 67%, rgb(152, 231, 156) 0, transparent 58%),
+    radial-gradient(at 67% 20%, hsla(357, 94%, 71%, 1) 0, transparent 59%),
+    radial-gradient(at 88% 35%, hsla(222, 81%, 65%, 1) 0, transparent 50%),
+    radial-gradient(at 31% 91%, hsla(9, 61%, 61%, 1) 0, transparent 52%),
+    radial-gradient(at 27% 71%, hsla(336, 91%, 65%, 1) 0, transparent 49%),
+    radial-gradient(at 74% 89%, hsla(30, 98%, 65%, 1) 0, transparent 51%),
+    radial-gradient(at 53% 75%, hsla(174, 94%, 68%, 1) 0, transparent 45%);
+  background-size: 125%;
+  animation: bg-animation 5s infinite alternate;
+}
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+
+  100% {
+    background-position: right;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

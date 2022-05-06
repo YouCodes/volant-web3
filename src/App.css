@@ -46,6 +46,26 @@ background: linear-gradient(90deg, #fad0c4, #ffcfc8, #ffcecd, #ffcdd3, #ffcdda, 
   background-size: 400%;
   animation: bg-animation 24s infinite alternate;
 }
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100vh;
+background: linear-gradient(90deg, #fad0c4, #ffcfc8, #ffcecd, #ffcdd3, #ffcdda, #ffcde3, #ffceec, #ffcff5, #ffd1ff);
+background-size: 400%;
+animation: bg-animation 24s infinite alternate;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #505050;
+  border-radius: 100vh;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C4E8F5;
+}
 
 @keyframes bg-animation {
   0% {background-position: left;}
