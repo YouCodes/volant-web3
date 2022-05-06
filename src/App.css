@@ -42,5 +42,12 @@ button {
 }
 
 html{
-  background: linear-gradient(150deg, #ffa17f, #f99880, #e58381, #c16a82, #90547c, #5c426d, #2f3258, #0e2745, #00223e);
+background: linear-gradient(90deg, #fad0c4, #ffcfc8, #ffcecd, #ffcdd3, #ffcdda, #ffcde3, #ffceec, #ffcff5, #ffd1ff);
+  background-size: 400%;
+  animation: bg-animation 24s infinite alternate;
+}
+
+@keyframes bg-animation {
+  0% {background-position: left;}
+  100% {background-position: right;}
 }
