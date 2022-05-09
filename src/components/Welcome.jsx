@@ -4,11 +4,11 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import { Loader } from ".";
+import { TransactionContext } from "../context/TransactionContext";
+import { shortenAddress } from "../utils/shortenAddress";
 
-function Welcome() {
-  const connectWallet = () => {
 
-  }
+
 const commonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex text-sm font-bold text-black";
 const Input = ({ placeholder, name, type, value, handleChange }) => (
   <input
@@ -20,6 +20,18 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
     className="my-2 w-full rounded-sm p-1.5 outline-none bg-transparent text-black border-none text-sm white-glassmorphism"
   />
 );
+const Welcome = () => {
+  const {currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
+
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData;
+
+    e.preventDefault();
+
+    if (!addressTo || !amount || !keyword || !message) return;
+
+    sendTransaction();
+  };
 
 
   return (
@@ -66,7 +78,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
           <BsInfoCircle fontSize={17} color="#fff" />
         </div>
          <p className="mt-10 text-left text-white font-light text-sm">
-               Address {/* {shortenAddress(currentAccount)} */}
+               Address {shortenAddress(currentAccount)}
         </p>
         <p className="text-left text-white font-semibold text-lg mt-1">
                   Ethereum
@@ -75,20 +87,24 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
       </div>
     </div>    
  <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-     <Input placeholder="Address To" name="addressTo" type="text" handleChange={()=>{}} />
-     <Input placeholder="Amount (Eth)" name="amount" type="text" handleChange={()=>{}} />
-     <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={()=>{}} />
-     <Input placeholder="Message" name="message" type="text" handleChange={()=>{}} />
+     <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} />
+     <Input placeholder="Amount (Eth)" name="amount" type="text" handleChange={handleChange} />
+     <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange} />
+     <Input placeholder="Message" name="message" type="text" handleChange={handleChange} />
 <div className="h-[1px] w-full bg-gray-400 my-2" />
     
           
-            
+         {isLoading
+              ? <Loader />
+              : (
                 <button
                   type="button"
-                  className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] bg-[#2952e3] hover:bg-[#2546bd] rounded-full cursor-pointer"
+                  onClick={handleSubmit}
+                  className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
                 >
-                  Send Now
+                  Send now
                 </button>
+              )}
         
      </div>
 </div> 
