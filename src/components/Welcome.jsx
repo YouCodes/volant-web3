@@ -41,7 +41,7 @@ const Welcome = () => {
         <h1 className="text-left  text-5xl text-black text-gradient py-1">
           Send Crypto <br /> around the world
         </h1>
-        <p className="text-left mt-5 text-black font-light md:w-9/12 w-11/12 text-base"> Volant Allows You to Buy and Sell <br /> Crypto Easily and at Lightning Speed </p>
+        <p className="text-left mt-5 text-black font-light md:w-9/12 w-11/12 text-base"> Volant Allows You to Send Crypto <br /> Easily and at Lightning Speed </p>
         <button type="button" onClick={connectWallet} className="flex mt-14 justify-center items-center my-5 bg-[#2952e3] p-3 mr-10 rounded-full cursor-pointer hover:bg-[#2546bd]"> 
        <p className="text-white text-base font-semibold"> Connect Metamask</p>
         </button> 

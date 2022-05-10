@@ -5,10 +5,10 @@ import App from './App'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+
   <TransactionsProvider>
     <App />
-    </TransactionsProvider>
-  </React.StrictMode>,
+    </TransactionsProvider>,
+
   document.getElementById("root"),
 );

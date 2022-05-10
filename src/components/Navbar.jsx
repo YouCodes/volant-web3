@@ -10,19 +10,30 @@ const NavBarItem = ({ title, classprops }) => (
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
+ const connectWallet = async () => {
+    try {
+      if (!ethereum) return alert("Please install MetaMask.");
 
+      const accounts = await ethereum.request({ method: "eth_requestAccounts", });
+
+      setCurrentAccount(accounts[0]);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+
+      throw new Error("No ethereum object");
+    }
+  };
   return (
     <nav className="w-full flex md:justify-center justify-between items-center p-4">
       <div className="md:flex-[0.5] flex-initial justify-center items-center">
-        <img src={logo} alt="logo" className="w-48 cursor-pointer" href="/" />
+        <a href="/"><img src={logo} alt="logo" className="w-48 cursor-pointer" /></a>
       </div>
       <ul className="text-black md:flex hidden list-none flex-row justify-between items-center flex-initial">
-        {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
-          <NavBarItem key={item + index} title={item} />
-        ))}
-        <li className="text-white bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
-          Login
-        </li>
+      
+        <button type="button" onClick={connectWallet} className="text-white text-base font-semibold bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
+          Connect Metamask
+        </button>
       </ul>
       <div className="flex relative">
         {!toggleMenu && (
