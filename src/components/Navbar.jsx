@@ -36,7 +36,7 @@ const Navbar = () => {
         </button>
       </ul>
       <div className="flex relative">
-        {!toggleMenu && (
+        {/* {!toggleMenu && (
           <HiMenuAlt4 fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(true)} />
         )}
         {toggleMenu && (
@@ -52,7 +52,7 @@ const Navbar = () => {
               (item, index) => <NavBarItem key={item + index} title={item} classprops="my-2 text-lg" />,
             )}
           </ul>
-        )}
+        )} */}
       </div>
     </nav>
   );
